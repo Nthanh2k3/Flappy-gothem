@@ -52,11 +52,11 @@ class LTexture{
 
             static const short int SCREEN_WIDTH = 350;
             static const short int SCREEN_HEIGHT = 600 ; 
-            static const short int PIPES_SPACE = 150 ; 
+            static const short int PIPE_SPACE = 150 ; 
             static const short int TOTAL_PIPES = 4;
             static const short int PIPES_DISTANCE = 220;
             static const short int LAND_HEIGHT = 140;
-            static const short int CHARACTER_HEIGHT = 35;
-            static const short int CHARACTER_WIDTH = 50;
+            static const short int GOTHEM_HEIGHT = 35;
+            static const short int GOTHEM_WIDTH = 50;
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include"characters.h"
+#include"Gothem.h"
 #include"pipe.h"
 #include"land.h"
 #include"soundtrack.h"
@@ -18,10 +18,10 @@ class game:LTexture {
         type Type;
     };
     input PlayerInput;
-    Characters something;
+    Gothem Gothem;
     pipe pipe;
     sound sound;
-    land land;
+    Land land;
 
     public:
 
@@ -50,7 +50,9 @@ class game:LTexture {
     {
         return pipe.height();
     }
-
+    bool ChangeTheme();
+    void LightTheme();
+    void DarkTheme();
     void TakeInput();
     void display();
     void Release_Graphics();
@@ -66,13 +68,14 @@ class game:LTexture {
     void RenderPauseTab();
     void Superman();
     void Batman(); 
-    void Change_Characters();
+    bool Change_Characters();
     void RenderNextButton();
     void RenderGameOver();
     void RenderMedals();
     void replay();
-    void checkReplay();
+    bool checkReplay();
     void Restart();
+    void ResetTime();
 
 
     private :
