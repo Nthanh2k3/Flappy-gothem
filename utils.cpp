@@ -27,7 +27,8 @@ short int LTexture::GetHei()
 
 void LTexture::Free()
 {
-    if(Texture != NULL){
+    if(Texture != NULL)
+    {
         SDL_DestroyTexture(Texture);
         Texture = NULL;
         tWid = 0;
@@ -40,7 +41,7 @@ void LTexture::Free()
 void LTexture::Render(short int x, short int y , short int angle , SDL_Rect* clip , SDL_RendererFlip flip)
 {
     SDL_Rect Rec_Render = {x,y,tWid,tHei};
-    if(clip == NULL)
+    if(clip != NULL)
     {
         Rec_Render.w = clip ->w;
         Rec_Render.h = clip ->h;
@@ -94,8 +95,8 @@ bool LTexture::isNULL()
 
 void position::getPosition(const short int x, const short int y)
 {
-    this ->x = x;
-    this ->y = y;
+    this->x = x;
+    this->y = y;
 }
 
 

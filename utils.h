@@ -51,8 +51,8 @@ class LTexture{
             static bool Die;
 
             static const short int SCREEN_WIDTH = 350;
-            static const short int SCREEN_HEIGHT = 600 ; 
-            static const short int PIPE_SPACE = 150 ; 
+            static const short int SCREEN_HEIGHT = 625 ; 
+            static const short int PIPE_SPACE = 160 ; 
             static const short int TOTAL_PIPES = 4;
             static const short int PIPES_DISTANCE = 220;
             static const short int LAND_HEIGHT = 140;

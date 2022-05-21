@@ -1,36 +1,34 @@
 #include"gameplay.h"
 #include"utils.h"
-#include<iostream>
 #include<time.h>
 #include<stdlib.h>
 #include<SDL.h>
 #include<SDL_image.h>
 #include<SDL_ttf.h>
-#include<SDL_mixer.h>
+
 
 
 const short int FPS = 60;
 const short int FrameDelay = 1000/FPS;
 using namespace std;
 
-int main(int argc , char** agrv)
-{   
-    Uint32 FrameStart;
-    short int FrameTime;
+int main(int argc, char** argv)
+{
+    Uint32 frameStart;
+    short int frameTime;
     game g;
-    bool isMenu = 0 ;
-    bool isSound = 0;
-    bool isPause = 0 ;
-    bool IsSuperman = 0;
+    bool isMenu = 0;
+    bool isPause = 0;
+    bool isSound = 1;
+    bool isSuperman = 0;
 
     while(!g.Is_Quit())
     {
-        FrameStart = SDL_GetTicks();
-
-        if(g.Is_Die())
+        frameStart = SDL_GetTicks();
+        
+        if (g.Is_Die())
         {
-            if(isMenu)
-            {
+            if (isMenu) {
                 g.sound.playHit();
                 g.Gothem.render();
             }
@@ -38,24 +36,19 @@ int main(int argc , char** agrv)
             while(g.Is_Die() && !g.Is_Quit())
             {
                 g.TakeInput();
-                if(isMenu == 1 && g.PlayerInput.Type == game::input::PLAY)
+                if (isMenu == 1 && g.PlayerInput.Type == game::input::PLAY)
                 {
-                    if(g.checkReplay())
+                    if (g.checkReplay())
                     {
                         isMenu = 0;
                     }
                     g.PlayerInput.Type = game::input::NONE;
                 }
-
-                if(!IsSuperman)
-                {
-                    g.Render_Background();
-                }
+                if (!isSuperman) g.Render_Background();
                 else g.Render_Background_Nightmode();
                 g.pipe.render();
                 g.land.Render();
-
-                if(isMenu)
+                if (isMenu)
                 {
                     g.Gothem.render();
                     g.Gothem.fall();
@@ -65,15 +58,13 @@ int main(int argc , char** agrv)
                     g.Render_Highest_Score();
                     g.replay();
                 }
-
-
                 else
                 {
                     g.pipe.init();
-                    g.Gothem.init(IsSuperman);
+                    g.Gothem.init(isSuperman); 
                     g.Gothem.render();
                     g.Render_Messages();
-                    if(g.PlayerInput.Type == game::input::PLAY)
+                    if (g.PlayerInput.Type == game::input::PLAY)
                     {
                         g.Restart();
                         isMenu = 1;
@@ -85,35 +76,33 @@ int main(int argc , char** agrv)
             }
             g.pipe.init();
         }
-
         else
         {
             g.TakeInput();
 
-            if(g.PlayerInput.Type == game::input::PAUSE)
+            if (g.PlayerInput.Type == game::input::PAUSE)
             {
-                isPause = abs(1-isPause);
+                isPause = abs(1 - isPause);
                 g.PlayerInput.Type = game::input::NONE;
             }
 
-            if(isPause == 0 && g.PlayerInput.Type == game::input::PLAY)
+            if (isPause == 0 && g.PlayerInput.Type == game::input::PLAY)
             {
-                if(isSound) g.sound.playBreath();
-                g.Gothem.resetTime();
+                if (isSound) g.sound.playBreath();
+                g.Gothem.resetTime(); 
                 g.PlayerInput.Type = game::input::NONE;
             }
 
-            if(!IsSuperman) g.Render_Background();
+            if (!isSuperman) g.Render_Background();
             else g.Render_Background_Nightmode();
             g.pipe.render();
             g.land.Render();
             g.Gothem.render();
             g.Render_Score_Large();
 
-
-            if(!isPause)
+            if (!isPause)
             {
-                g.Gothem.update(g.Get_pipe_Width(),g.Get_pipe_Height());
+                g.Gothem.update(g.Get_pipe_Width(), g.Get_pipe_Height());
                 g.pipe.Update();
                 g.land.update();
                 g.Pause();
@@ -126,7 +115,7 @@ int main(int argc , char** agrv)
                 g.Render_Highest_Score();
                 g.replay();
                 g.sound.RenderSound();
-                if (!IsSuperman) g.LightTheme(); else g.DarkTheme();
+                if (!isSuperman) g.Batman(); else g.Superman();
                 g.RenderNextButton();
                 if (g.PlayerInput.Type == game::input::PLAY)
                 {
@@ -138,25 +127,22 @@ int main(int argc , char** agrv)
                     {
                         isSound = abs(1 - isSound);
                     }
-                    else if (g.ChangeTheme())
+                    else if (g.Change_Characters())
                     {
-                        IsSuperman = abs(1 - IsSuperman);
-                        g.Gothem.init(IsSuperman);
+                        isSuperman = abs(1 - isSuperman);
+                        g.Gothem.init(isSuperman);
                     }
                     g.PlayerInput.Type = game::input::NONE;
                 }
-            
             }
             g.display();
-
-            
         }
 
-        //Limit FPS:
-        FrameTime = SDL_GetTicks() - FrameStart;
-        if(FrameDelay > FrameTime)
+        
+        frameTime = SDL_GetTicks() - frameStart;
+        if (FrameDelay > frameTime)
         {
-            SDL_Delay(FrameDelay - FrameTime);
+            SDL_Delay(FrameDelay - frameTime);
         }
     }
     return 0;

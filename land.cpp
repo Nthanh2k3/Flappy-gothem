@@ -1,14 +1,16 @@
-#pragma once
+
 
 #include"land.h"
 #include<iostream>
 #include<stdlib.h>
 #include<stdio.h>
 
+
+
 bool Land::init()
 {
-    posLand.getPosition(0, SCREEN_HEIGHT - LAND_HEIGHT);
-    string back_path = "components/image/land.png";
+    posLand.getPosition(0, SCREEN_HEIGHT - LAND_HEIGHT );
+    string back_path = "Components/image/land.png";
     if (isNULL())
     {
         if ( Load( back_path.c_str(), 1 ) )
@@ -21,7 +23,7 @@ bool Land::init()
         }
     }
     return false;
-};
+}
 
 void Land::Render()
 {
@@ -32,7 +34,7 @@ void Land::Render()
     else if (posLand.x > -SCREEN_WIDTH && posLand.x <= 0)
     {
         LTexture::Render(posLand.x, posLand.y);
-        LTexture::Render(posLand.x + SCREEN_WIDTH, posLand.y, 0, NULL);
+        LTexture::Render(posLand.x + SCREEN_WIDTH, posLand.y , 0, NULL);
     }
     else
     {
@@ -44,4 +46,9 @@ void Land::Render()
 void Land::update()
 {
     posLand.x -= 3;
+}
+
+void Land::Free()
+{
+    Free();
 }

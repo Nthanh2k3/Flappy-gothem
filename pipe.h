@@ -24,8 +24,14 @@ class pipe:LTexture
 
     void Update();
 
-    short int width() {return GetWid();}
+    short int width()
+    {
+        return GetWid();
+    }
 
-    short int height() {return  GetHei();}
+    short int height()
+    {
+        return GetHei();
+    }
 
 };

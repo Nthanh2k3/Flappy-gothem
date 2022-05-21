@@ -1,26 +1,21 @@
 #include"Gothem.h"
-#include<iostream>
-#include<stdio.h>
+#include <stdio.h>
+#include <iostream>
 
-bool Gothem::init(bool IsSuperMan)
+bool Gothem::init(bool isSuperman)
 {
     string Gothem_path = "Components/image/Batman.png";
-    if(IsSuperMan)
-    {
-        string Gothem_path = "Components/image/Superman.png";
-    }
-
-    if(saved_path == Gothem_path)
+    if (isSuperman) Gothem_path = "Components/image/Superman.png";
+    if (saved_path == Gothem_path)
     {
         posGothem.getPosition(75, SCREEN_HEIGHT / 2 - 10);
         ahead = 0;
         angle = 0;
     }
-
-    if(isNULL() || saved_path != Gothem_path)
+    if (isNULL() || saved_path != Gothem_path)
     {
         saved_path = Gothem_path;
-        if(Load(Gothem_path.c_str(), 1))
+        if ( Load(Gothem_path.c_str() , 1) )
         {
             return true;
         }
@@ -28,8 +23,6 @@ bool Gothem::init(bool IsSuperMan)
         {
             return false;
         }
-
-
 
     }
     return false;
@@ -42,26 +35,24 @@ void Gothem::Free()
 
 void Gothem::render()
 {
-    Render(posGothem.x, posGothem.y , angle);
-} 
+    Render(posGothem.x, posGothem.y, angle);
+}
 
-void Gothem::fall()
+void Gothem::fall() 
 {
-    if(Die && posGothem.y < SCREEN_HEIGHT - LAND_HEIGHT - GOTHEM_HEIGHT - 5)
+    if (Die && posGothem.y < SCREEN_HEIGHT - LAND_HEIGHT - GOTHEM_HEIGHT - 5)
     {
-        if(time == 0)
+        if (time == 0)
         {
             x0 = posGothem.y;
             angle = -25;
-
         }
-        else if(angle < 70 && time > 30)
+        else if (angle < 70 && time > 30)
         {
             angle += 3;
-
         }
 
-        if(time >= 0)
+        if (time >= 0)
         {
             posGothem.y = x0 + time * time * 0.18 - 7.3 * time;
             time++;
@@ -70,7 +61,7 @@ void Gothem::fall()
     else return;
 }
 
-void Gothem::update(short int pipeWid , short int pipeHei)
+void Gothem::update(short int pipeWid, short int pipeHei)
 {
     if (!Die)
     {

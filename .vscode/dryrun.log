@@ -1,0 +1,19 @@
+make --dry-run --always-make --keep-going --print-directory
+objc[1263]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x207efe098) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c82c8). One of the two will be used. Which one is undefined.
+
+objc[1263]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x207efe0e8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c8318). One of the two will be used. Which one is undefined.
+
+objc[1263]: Class AppleTypeCRetimerRestoreInfoHelper is implemented in both /usr/lib/libauthinstall.dylib (0x207efdeb0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c84f8). One of the two will be used. Which one is undefined.
+objc[1263]: Class AppleTypeCRetimerFirmwareAggregateRequestCreator is implemented in both /usr/lib/libauthinstall.dylib (0x207efdf00) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c8548). One of the two will be used. Which one is undefined.
+
+objc[1263]: Class AppleTypeCRetimerFirmwareRequestCreator is implemented in both /usr/lib/libauthinstall.dylib (0x207efdf50) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c8598). One of the two will be used. Which one is undefined.
+
+objc[1263]: Class ATCRTRestoreInfoFTABFile is implemented in both /usr/lib/libauthinstall.dylib (0x207efdfa0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c85e8). One of the two will be used. Which one is undefined.
+
+objc[1263]: Class AppleTypeCRetimerFirmwareCopier is implemented in both /usr/lib/libauthinstall.dylib (0x207efdff0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c8638). One of the two will be used. Which one is undefined.
+objc[1263]: Class ATCRTRestoreInfoFTABSubfile is implemented in both /usr/lib/libauthinstall.dylib (0x207efe040) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1060c8688). One of the two will be used. Which one is undefined.
+
+make: Entering directory `/Users/macbook/Desktop/Lại là làm game nhưng mà giai đoạn nghiêm túc hơn/Flappy-gothem'
+g++ --std=c++14 Gothem.cpp gameplay.cpp land.cpp main.cpp pipe.cpp soundtrack.cpp utils.cpp -o main -I/opt/homebrew/include/SDL2 -D_THREAD_SAFE -L/opt/homebrew/lib -lSDL2 -lSDL2main -lSDL2_image -lSDL2_test -lSDL2_ttf -lSDL2_mixer
+make: Leaving directory `/Users/macbook/Desktop/Lại là làm game nhưng mà giai đoạn nghiêm túc hơn/Flappy-gothem'
+ 

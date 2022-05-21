@@ -7,7 +7,7 @@
 bool sound::init()
 {
     string breath_path = "Components/sound/breath.wav";
-    string hit_path ="Components/sound/ahhh.wav";
+    string hit_path ="Components/sound/á.wav";
     string sound_path = "Components/image/sound.png";
 
     bool success = true;
@@ -102,10 +102,9 @@ void sound::RenderSound()
 
 bool sound::CheckSound()
 {
-    int x, y;
-    SDL_GetMouseState(&x, &y);
-    if (x > POS_X && x < POS_X + GetWid() &&
-        y > POS_Y && y < POS_Y + GetHei())
+    int x,y;
+    SDL_GetMouseState(&x,&y);
+    if(x > POS_X && x < POS_X + GetWid() && y>POS_Y && y<POS_Y + GetHei())
     {
         isPlay = !isPlay;
         return true;

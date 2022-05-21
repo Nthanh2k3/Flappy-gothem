@@ -1,22 +1,20 @@
-#include"pipe.h"
-#include<iostream>
-#include<stdio.h>
+#include "pipe.h"
+#include "stdio.h"
 
 vector<position> posPipe;
 
 bool pipe::init()
 {
     posPipe.clear();
-    for(signed char i = 0 ; i < TOTAL_PIPES ; i++ )
+    for (signed char i = 0; i < TOTAL_PIPES; i++)
     {
         position temp;
         temp.getPosition(SCREEN_WIDTH + i * PIPES_DISTANCE + 350, (rand() % (randMax - randMin + 1)) + randMin);
         posPipe.push_back(temp);
     }
-
-    if(isNULL())
+    if (isNULL())
     {
-        if(Load("Components/image/pipe.ong" , 1))
+        if (Load( "Components/image/pipe.png", 1 ))
         {
             return true;
         }

@@ -10,10 +10,9 @@ class Land:LTexture
 {
     public:
     bool init();
-    void Free();
     void Render();
     void update();
-
+    void Free();
     private : 
     position posLand;
 };

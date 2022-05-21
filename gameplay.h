@@ -29,7 +29,7 @@ class game:LTexture {
     ~game();
 
 
-    bool Init_Graphic();
+    bool InitGraphic();
 
     bool Is_Quit()
     {
@@ -50,12 +50,10 @@ class game:LTexture {
     {
         return pipe.height();
     }
-    bool ChangeTheme();
-    void LightTheme();
-    void DarkTheme();
+
     void TakeInput();
     void display();
-    void Release_Graphics();
+    void ReleaseGraphic();
     void Render_Score_Small();
     void Render_Score_Large();
     void Render_Highest_Score();
